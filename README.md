@@ -1,6 +1,6 @@
 ## 🎯 Microservice Pattern Decision Matrix — What, When, and Why to Use
 
-Microservices are the backbone of modern backend systems. But designing them isn’t just about splitting your app into smaller parts 
+Microservices are the backbone of modern backend systems. But designing them isn’t just about splitting your app into smaller parts -
 you need solid design patterns to keep things scalable, reliable, and maintainable.
 
 Monolithic architecture is simpler, but as your system grows, scalability, security, and reliability become real challenges. 
@@ -11,36 +11,36 @@ Some real-world use cases, what, when, and why use case scenarios, will make it 
 
 ✅ Quick Reference: Java Microservice Design Patterns List
 
-- Decomposition Pattern — Break the monolith into domain-aligned services
-- Database per Service Pattern — Isolate data ownership per microservice
-- *API Gateway Pattern — Single entry point for routing and cross-cutting concerns
-- *Service Discovery Pattern — Dynamically locate services via registry
-- *Circuit Breaker Pattern — Prevent cascading failures with fallbacks
-- Externalized Configuration Pattern — Manage configs outside the codebase
-- *Observability Pattern — Enable logging, metrics, and distributed tracing
-- Asynchronous Messaging Pattern — Decouple communication using events
-- *Security Pattern — Secure services with OAuth2, JWT, and API Gateway integration
-- *Saga Pattern (Distributed Transactions) — Manage data consistency across services
-- Bulkhead Pattern — Isolate resource failures between services/components
-- Strangler Fig Pattern — Gradually migrate monoliths to microservices
+- Decomposition Pattern — `Break the monolith into domain-aligned services`
+- Database per Service Pattern — `Isolate data ownership per microservice`
+- *API Gateway Pattern — `Single entry point for routing and cross-cutting concerns`
+- *Service Discovery Pattern — `Dynamically locate services via registry`
+- *Circuit Breaker Pattern — `Prevent cascading failures with fallbacks`
+- Externalized Configuration Pattern — `Manage configs outside the codebase`
+- *Observability Pattern — `Enable logging, metrics, and distributed tracing`
+- Asynchronous Messaging Pattern — `Decouple communication using events`
+- *Security Pattern — `Secure services with OAuth2, JWT, and API Gateway integration`
+- *Saga Pattern (Distributed Transactions) — `Manage data consistency across services`
+- Bulkhead Pattern — `Isolate resource failures between services/components`
+- Strangler Fig Pattern — `Gradually migrate monoliths to microservices`
   
-1️⃣ Decomposition Pattern — Split by Business Capability
+# 1️⃣ Decomposition Pattern — Split by Business Capability
 📖 Description:
 Break down a monolithic application into independent services aligned with business domains.
 
 📦 Example:
+
 E-commerce domains like:
 
-OrderService
-PaymentService
-UserService
-+------------------+
-|   Monolith App   |
-+--------+---------+
-         ↓
-+----------------+  +----------------+  +----------------+
-| Order Service   |  | Payment Service|  | User Service   |
-+----------------+  +----------------+  +----------------+
+- OrderService
+- PaymentService
+- UserService
+- +------------------+      +----------------+  +----------------+  +----------------+
+- |   Monolith App   | ->   | Order Service   |  | Payment Service|  | User Service   |
+- +--------+---------+     +----------------+  +----------------+  +----------------+
+
+  
+  
 ✅ Spring Boot Tip: Start each domain as a separate Spring Boot project with its own application.properties.
 
 When to use:
@@ -53,7 +53,7 @@ Keeps each domain independent
 Aligns teams to business boundaries
 📌 Pro tip: Start with 2–3 microservices before fully decomposing the app.
 
-2️⃣ Database per Service Pattern
+# 2️⃣ Database per Service Pattern
 📖 Description:
 Each microservice should manage its own database to stay decoupled and independent.
 
