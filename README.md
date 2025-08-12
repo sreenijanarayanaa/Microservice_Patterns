@@ -1,7 +1,7 @@
 ## 🎯 Microservice Pattern Decision Matrix — What, When, and Why to Use
 
 Microservices are the backbone of modern backend systems. But designing them isn’t just about splitting your app into smaller parts 
-- you need solid design patterns to keep things scalable, reliable, and maintainable.
+you need solid design patterns to keep things scalable, reliable, and maintainable.
 
 Monolithic architecture is simpler, but as your system grows, scalability, security, and reliability become real challenges. 
 That’s where microservice design patterns shine — helping you build robust and maintainable systems.
