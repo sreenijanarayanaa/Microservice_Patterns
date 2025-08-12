@@ -280,11 +280,6 @@ spring.security.oauth2.resourceserver.jwt.jwk-set-uri=https://your-auth.com/.wel
 - 📖 Description:
 - Use events or orchestration to manage transactions across multiple services.
 
-- Get Code With Praveen’s stories in your inbox
-- Join Medium for free to get updates from this writer.
-
-- Enter your email
-- Subscribe
 - There are two approaches under the Saga Pattern.
 
 - 🧠 Choreography
