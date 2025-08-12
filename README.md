@@ -43,11 +43,12 @@ E-commerce domains like:
   
 ✅ Spring Boot Tip: Start each domain as a separate Spring Boot project with its own application.properties.
 
-When to use:
+~ `When to use:`:
 
 - You’re starting to break down a monolith
 - You want clear domain separation (e.g., Order, User, Payment)
-Why:
+  
+~  `Why:`
 
 - Keeps each domain independent
 - Aligns teams to business boundaries
@@ -68,11 +69,12 @@ spring.datasource.password=pass
 ```
 - 📌 Avoid shared databases across services.
 
-- When to use:
+~ `When to use:`:
 
 - Each service owns its data model
 - Services must scale and deploy independently
-- Why:
+  
+~  `Why:`
 
 - Prevents data coupling
 - Enables scaling individual services
@@ -97,11 +99,12 @@ spring.cloud.gateway.routes[1].id=payment-service
 spring.cloud.gateway.routes[1].uri=http://localhost:8082
 spring.cloud.gateway.routes[1].predicates=Path=/payments/**
 ```
-- When to use:
+~ `When to use:`:
 
 - You need a single entry point for clients (UI, mobile, APIs)
 - You want centralized routing, authentication, and throttling
-- Why:
+  
+~  `Why:`
 
 - Simplifies client code
 - Centralized cross-cutting concerns
@@ -132,7 +135,7 @@ When to use:
 ```
 - You deploy services dynamically (Docker, Kubernetes, ECS, etc.)
 - IPs and ports change frequently
-- Why:
+   ~  `Why:`
 
 - Allows dynamic lookup and load balancing
 - ✅ Pair this with Eureka or Kubernetes DNS for auto-registration.
@@ -155,11 +158,12 @@ resilience4j.circuitbreaker.instances.paymentService.register-health-indicator=t
 resilience4j.circuitbreaker.instances.paymentService.sliding-window-size=5
 resilience4j.circuitbreaker.instances.paymentService.failure-rate-threshold=50
 ```
-- When to use:
+~ `When to use:`:
 
 - Services rely on other services
 - Failures could cascade through the system
-- Why:
+  
+~  `Why:`
 
 - Protects your system from overload
 - Improves resilience and user experience
@@ -186,11 +190,11 @@ spring.config.import=optional:configserver:http://localhost:8888
 server.port=8888
 spring.cloud.config.server.git.uri=file:///home/shared-config
 ```
-- When to use:
+~ `When to use:`:
 
 - You need to change the config without redeploying services
 - You manage secrets, URLs, or feature flags
-- Why:
+   ~  `Why:`
 
 - Centralized management
 - Environment-specific overrides
@@ -211,11 +215,11 @@ management.endpoints.web.exposure.include=*
 management.endpoint.prometheus.enabled=true
 management.metrics.export.prometheus.enabled=true
 ```
-- When to use:
+~ `When to use:`:
 
 - You want to track what’s happening inside your services
 - You need logs, metrics, and traces for debugging or alerting
-- Why:
+   ~  `Why:`
 
 - Helps in production troubleshooting
 - Enables proactive monitoring
@@ -241,11 +245,12 @@ spring.kafka.consumer.auto-offset-reset=earliest
 spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
 spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
 ```
-- When to use:
+~ `When to use:`:
 
 - You need to decouple services (e.g., event-driven flows)
 - Some operations take time (e.g., payments, shipping)
-- Why:
+
+ ~  `Why:`
 
 - Improves scalability and fault tolerance
 - 💬 Start with Kafka — great for event-driven architecture.
@@ -260,11 +265,12 @@ spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.S
 spring.security.oauth2.resourceserver.jwt.issuer-uri=https://your-auth.com/
 spring.security.oauth2.resourceserver.jwt.jwk-set-uri=https://your-auth.com/.well-known/jwks.json
 ```
-- When to use:
+~ `When to use:`:
 
 - You expose services publicly or internally
 - You want to control access and permissions
-- Why:
+
+~  `Why:`
 
 - Ensures secure communication
 - Simplifies role-based access
@@ -294,11 +300,12 @@ spring.security.oauth2.resourceserver.jwt.jwk-set-uri=https://your-auth.com/.wel
 
 - Kafka for Choreography
 - Camunda/Temporal for Orchestration
-- When to use:
+~ `When to use:`:
 
 - A business process involves multiple services
 - You need to manage distributed transactions
-- Why:
+
+~  `Why:`
 
 - Maintains consistency across services
 - Supports rollback and compensation flows
@@ -313,11 +320,12 @@ spring.security.oauth2.resourceserver.jwt.jwk-set-uri=https://your-auth.com/.wel
 resilience4j.bulkhead.instances.orderService.max-concurrent-calls=10
 resilience4j.bulkhead.instances.orderService.max-wait-duration=500ms
 ```
-- When to use:
+~ `When to use:`:
 
 - One slow service can block others
 - You want to isolate failures
-- Why:
+
+ ~  `Why:`
 
 - Improves system stability
 - Prevents resource exhaustion
@@ -330,11 +338,12 @@ resilience4j.bulkhead.instances.orderService.max-wait-duration=500ms
       API Gateway
          ├── /orders → Microservice
          └── /admin  → Monolith
-- When to use:
+~ `When to use:`:
 
 - You’re migrating a monolith to microservices
 - You want a gradual migration without breaking existing systems
-- Why:
+
+ ~  `Why:`
 
 - Reduces risk during refactoring
 - Enables service-by-service evolution
